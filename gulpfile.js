@@ -20,7 +20,7 @@ function styles() {
     return src('app/scss/style.scss')  
         .pipe(autoprefixer({ovverideBrowserslist: ['last 10 version']})) // Подежривание прфиксов более старых версии
         .pipe(concat('style.min.css'))  // Изменение имени файла
-        .pipe(scss({outputStyle: 'compressed' })) // Сжатие файла
+        .pipe(scss({outputStyle: 'compressed' })) // Сжатие файла можно прописать expanded будет отображатся обычный css
         .pipe(dest('app/css')) // Вывод измененого файла
         .pipe(browserSync.stream()) // Автоматическое обновление в браузере
 }
@@ -91,6 +91,7 @@ function watching(){
                 }
             });
     watch(['app/scss/style.scss'], styles) //Изменение фала в настоящие время
+    watch(['app/scss/*.scss'], styles)
     watch(['app/js/main.js'], scripts)
     watch(['app/images/src'], images) //Изменение фала в настоящие время
     watch(['app/components/*', 'app/pages/*'], pages)
