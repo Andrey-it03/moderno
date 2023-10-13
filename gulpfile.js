@@ -55,17 +55,17 @@ function pages(){
 }
 
 function images(){
-    return src('app/images/src/*.*', '!app/images/src/*.svg') // Конвертация всех форматов, кроме svg
+    return src('app/images/src/*/*.*', '!app/images/src/*.svg') // Конвертация всех форматов, кроме svg
     .pipe(newer('app/images')) // Проверка на существование картинки
     
     .pipe(avif({quality : 50 })) // Сжатие картинки
 
     .pipe(newer('app/images')) // Проверка на существование картинки
-    .pipe(src('app/images/src/*.*'))
+    .pipe(src('app/images/src/*/*.*'))
     .pipe(webp())
 
     .pipe(newer('app/images')) // Проверка на существование картинки
-    .pipe(src('app/images/src/*.*'))
+    .pipe(src('app/images/src/*/*.*'))
     .pipe(imagemin())
 
     .pipe(dest('app/images')) //Минимизация картинок
