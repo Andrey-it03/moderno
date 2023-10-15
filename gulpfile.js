@@ -24,10 +24,22 @@ function styles() {
         .pipe(dest('app/css')) // Вывод измененого файла
         .pipe(browserSync.stream()) // Автоматическое обновление в браузере
 }
+function libs(){
+    return src(
+        'node_modules/normalize.css/normalize.css',
+        
+    )
+    .pipe(autoprefixer({ovverideBrowserslist: ['last 10 version']}))
+    .pipe(concat('libs.css'))
+    .pipe(scss({outputStyle: 'compressed'}))
+    .pipe(dest('app/css'))
+    .pipe(browserSync.stream())
+}
 
 function scripts(){
     return src([
         'app/js/main.js',
+        'node_modules/mixitup/dist/mixitup.js'
     ]) 
     .pipe(concat('main.min.js')) // Изменение имени файла, обьединения фаила
     .pipe(uglify())              // Сжатие js файлов
@@ -61,7 +73,10 @@ function images(){
     .pipe(avif({quality : 50 })) // Сжатие картинки
 
     .pipe(newer('app/images')) // Проверка на существование картинки
-    .pipe(src('app/images/src/*/*.*'))
+    .pipe(src(
+        'app/images/src/*/*.*',
+        'app/images/home_page/content/*.*'
+        ))
     .pipe(webp())
 
     .pipe(newer('app/images')) // Проверка на существование картинки
@@ -137,6 +152,7 @@ exports.building = building;
 exports.watching = watching;
 exports.fonts = fonts;
 exports.pages = pages;
+exports.libs = libs;
 exports.build = series(cleanDist, building);              // Последовательное удаление и запись
 
-exports.default = parallel(styles, scripts, images, pages,/*browsersync,*/watching); //Обновление всех файлов одновременно через, команду gulp
+exports.default = parallel(styles, scripts, images, pages, libs,/*browsersync,*/watching); //Обновление всех файлов одновременно через, команду gulp
