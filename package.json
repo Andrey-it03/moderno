@@ -26,6 +26,8 @@
     "gulp-webp": "^4.0.1",
     "mixitup": "^3.3.1",
     "normalize.css": "^8.0.1",
-    "sass": "^1.68.0"
+    "rateyo": "^2.3.2",
+    "sass": "^1.68.0",
+    "slick-carousel": "^1.8.1"
   }
 }

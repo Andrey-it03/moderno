@@ -17,29 +17,35 @@ const include    = require('gulp-include');
 
 
 function styles() {
-    return src('app/scss/style.scss')  
+    return src(
+        'app/scss/style.scss'
+        )  
         .pipe(autoprefixer({ovverideBrowserslist: ['last 10 version']})) // Подежривание прфиксов более старых версии
         .pipe(concat('style.min.css'))  // Изменение имени файла
         .pipe(scss({outputStyle: 'compressed' })) // Сжатие файла можно прописать expanded будет отображатся обычный css
         .pipe(dest('app/css')) // Вывод измененого файла
         .pipe(browserSync.stream()) // Автоматическое обновление в браузере
 }
-function libs(){
-    return src(
-        'node_modules/normalize.css/normalize.css',
+// function libs(){
+//     return src(
+//         'node_modules/normalize.css/normalize.css'
         
-    )
-    .pipe(autoprefixer({ovverideBrowserslist: ['last 10 version']}))
-    .pipe(concat('libs.css'))
-    .pipe(scss({outputStyle: 'compressed'}))
-    .pipe(dest('app/css'))
-    .pipe(browserSync.stream())
-}
+        
+//     )
+//     .pipe(autoprefixer({ovverideBrowserslist: ['last 10 version']}))
+//     .pipe(concat('libs.css'))
+//     .pipe(scss({outputStyle: 'compressed'}))
+//     .pipe(dest('app/css'))
+//     .pipe(browserSync.stream())
+// }
 
 function scripts(){
     return src([
         'app/js/main.js',
-        'node_modules/mixitup/dist/mixitup.js'
+        'node_modules/mixitup/dist/mixitup.js',
+        'node_modules/rateyo/src/jquery.rateyo.js',
+        'node_modules/slick-carousel/slick/slick.js'
+    
     ]) 
     .pipe(concat('main.min.js')) // Изменение имени файла, обьединения фаила
     .pipe(uglify())              // Сжатие js файлов
@@ -152,7 +158,8 @@ exports.building = building;
 exports.watching = watching;
 exports.fonts = fonts;
 exports.pages = pages;
-exports.libs = libs;
+//exports.libs = libs;
 exports.build = series(cleanDist, building);              // Последовательное удаление и запись
 
-exports.default = parallel(styles, scripts, images, pages, libs,/*browsersync,*/watching); //Обновление всех файлов одновременно через, команду gulp
+exports.default = parallel(styles, scripts, images, pages,/* libs, browsersync,*/watching); 
+//Обновление всех файлов одновременно через, команду gulp
