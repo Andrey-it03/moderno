@@ -14,7 +14,11 @@ $(function(){
 
     });
 
-    var mixer = mixitup('.products__inner-box');
+
+
+
+
+    var mixer = mixitup('.products__inner-box'); // Всегда должен быть в конце иначе не работает
 
 
     
