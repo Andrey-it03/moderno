@@ -82,7 +82,8 @@ function images(){
     .pipe(newer('app/images')) // Проверка на существование картинки
     .pipe(src(
         'app/images/src/*/*.*',
-        'app/images/home_page/content/*.*'
+        'app/images/home_page/content/*.*',
+        'app/images/product/more-products/*.*'
         ))
     .pipe(webp())
 
