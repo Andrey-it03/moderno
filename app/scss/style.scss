@@ -855,6 +855,9 @@
 .search__product-text{
     margin-bottom: 30px;
 }
+.breadcrams{
+    background-color: #f4f6f5;
+}
 .breadcrams__inner{
     font-size: 15px;
     padding: 45px 0;    
@@ -871,6 +874,7 @@
 
 .product-one{
     margin-bottom: 100px;
+    background-color: #f4f6f5;
 }
 .product-one__inner{
     display: flex;
@@ -894,7 +898,7 @@
     background-position: center;
     background-size: cover;
 }
-.product-on__title{
+.product-one__title{
     font-size: 30px;
     color: $bg;
     line-height: 40px;
@@ -1044,6 +1048,136 @@
         width: 100%;
     }
 }
-@import 'media';
+.aside__item{
+    background-color: rgb(255, 255, 255);
+    min-width: 270px;
+    height: 340px;
+    padding: 25px 30px;
+    border: 1px solid #dedede;
+    margin-bottom: 30px;
+}
+.aside__title{
+    color: $bg;
+    @include f700;
+    border-bottom: 1px solid #dde3e8;
+    padding-bottom: 25px;
+}
+.aside__product{
+    background-color: #f4f6f5;
+    border: none;
+}
 
+.price__box{
+    display:flex;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+.price__product{
+    font-size: 22px;
+    @include f500;
+    color: $red;
+}
+.product__price{
+    button{
+        margin-bottom: 7px;
+        box-shadow: 0px 1px 2px 0px rgba(69, 90, 100, 0.75);
+        border:none;
+        background-color: $text;
+        color: #fff;
+        font-size: 16px;
+        @include f700;
+        text-align: center;
+        display: block;
+        padding: 17px 5px 15px;
+        width: 100%;
+        cursor: pointer;
+        &::before{
+            font-family: 'icomoon';
+            padding-left: 8px;
+        }
+    }
+    .icon-shopping-cart{
+        background-color: $green;
+    }
+}
+.product-author__box{
+    padding:25px 0;
+    display: flex;
+    align-items: center;
+}
+.author__avatar{
+    margin-right: 14px;
+}
+.author__name{
+    font-size: 18px;
+    color:$bg;
+    margin-bottom: 2px;
+}
+.author__info-link{
+    color: #707070;
+    font-size: 13px;
+    padding: 7px 9px 6px;
+    border: 1px solid #d6d6d6;
+}
+.author__awords-list{
+    li{
+        display:inline-block;
+        color: #fff;
+        font-size: 20px;
+        text-align:center;
+        position: relative;
+        &::before{
+            position: absolute;
+            top: 6  px;
+            left: 0;
+            right: 0;
+        }
+        & + li{
+            margin-left: 4px;
+        }
+    }
+    .icon-shopping-cart{
+        background-image: url('../images/product/achievement.png');
+        width: 34px;
+        height: 37px;
+    }
+}
+.product__sell{
+    height: 65px;
+    padding-top: 0;
+    padding-bottom: 25px;
+}
+.aside__item-sales{
+    padding-top: 23px;
+    font-size: 16px;
+    color: #707070;
+    span{
+        font-size: 20px;
+        @include f700;
+        color: #363288;
+        padding-right: 13px;
+        &::before{
+            content: "\f07a";
+            color: #a6b5bb;
+            padding-right: 20px;
+            font-family: 'icomoon';
+        }
+    }
+}
+.information__line{
+    font-size: 14px;
+    color: #70838d;
+    margin-top: 20px;
+    span{
+        color: $bg;
+        @include f500;
+    }
+}
+.product__information{
+    height: 400px;
+}
+
+
+@import 'media';
+ 
   
