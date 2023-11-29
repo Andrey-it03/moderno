@@ -1180,13 +1180,18 @@
 
     
 
-.page-404__wrapper{
+.page-404__wrapper,
+.contact__wrapper{
     border:1px solid #dcdcdc;
     margin-bottom: 130px;
     margin-top: 30px;
     background-color: $green;
 }
-.page-404__head{
+.contact__wrapper{
+    background-color: #fff;
+}
+.page-404__head,
+.contact__head{
     font-size: 24px;
     color: #444;
     padding: 23px 27px;
@@ -1228,9 +1233,123 @@
     }
     padding-bottom: 100px;
     border-radius: 4px;
- 
-
 }   
+
+
+.contact__head{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.contact__inner{
+   padding: 35px 40px 15px;      
+}
+.contact__map{
+    margin-bottom: 50px;
+    iframe{
+        width: 100%;
+        height: 415px;
+    }
+}
+.contact__box{
+    display:flex;
+}
+.contact__info{
+    margin-right: 30px;
+    max-width: 300px;
+    width: 100%;
+}
+.contact__info-item{
+    margin-bottom: 30px;
+}
+.contact__info-title{
+    padding-bottom: 20px;
+    font-size: 20px;
+    @include f500;
+    color: $bg;
+    padding-left: 40px;
+    margin-bottom: 25px;
+    position:relative;
+    &::after{
+        content: '';
+        position: absolute;
+        width: 44px;
+        height: 4px;
+        background: $green;
+        left: 40px;
+        bottom: 0;
+    }
+    &::before{
+        color: $green;
+        font-size: 24px;
+        position: absolute;
+        left: 0;
+
+    }
+}
+.content__info-content{
+    padding-left: 40px;
+    color: #707070;
+    max-width: 230px;
+}
+.contact__form-title{
+    margin-bottom: 25px;
+    font-size: 24px;
+    @include f500;
+    color: #333;
+}
+.contact__form-row{
+    display:flex;
+    justify-content: space-between;
+}
+.contact__name{
+    margin-right: 15px;
+}
+.contact__form{
+    width: 100%;
+    input{
+        display:inline-block;
+        border: none;
+        height: 43px;
+        padding-left: 17px;
+        padding-right: 17px;
+        background-color: #f1f4f5;
+        width: 300px;
+        margin-bottom: 30px;
+        &::placeholder{
+            color: #7a7a7a;
+            font-size: 15px;
+        }
+    }
+    textarea{
+        border:none;
+        padding-left: 17px;
+        padding-right: 17px;
+        padding: 13px 17px;
+        height: 190px;
+        background-color: #f1f4f5;
+        width: 100%;
+        display:block;
+        resize: none;
+        margin-bottom: 23px;
+        &::placeholder{
+            color: #7a7a7a;
+            font-size: 15px;
+        }
+
+    }
+    button{
+        background-color: $green;
+        font-size: 16px; 
+        text-transform: uppercase;
+        text-align:center;
+        @include f700;
+        color: #fff;
+        padding: 20px 5px;
+        border:none;
+        width: 190px;
+    }
+}
+
 
 
 @import 'media';
